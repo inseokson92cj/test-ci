@@ -1,0 +1,14 @@
+name: ci-pr-test
+on:
+  pull_request:
+    branches:
+	  - main
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+	steps:
+	  - name: Dump Github context
+	    env:
+		  GITHUB_CONTEXT: ${{ toJSON(github) }}
+		run: echo $GITHUB_CONTEXT
